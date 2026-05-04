@@ -1,0 +1,38 @@
+name: EvnScope
+
+on: push
+
+env:
+    APP: demo
+
+jobs: 
+    build: 
+        runs-on: ubuntu-latest
+    
+        env: 
+            MODE: prod
+
+        steps:
+            - name: Print global + job env
+              run: |
+                echo "APP=$APP"
+                echo "MODE=$MODE"
+            
+            - name: override MODE in step 
+              env: 
+                MODE: dev
+              run: echo "MODE after step = $MODE"
+
+            - name: Set temp variable (will fail)
+              run: |
+                MY_VAR=hello
+                echo "Step1 MY_VAR=$MY_VAR"
+
+            - name: Use temp variable
+              run: echo "Step2 MY_VAR=$MY_VAR"
+            
+            - name: Persist variable
+              run: echo "MY_VAR=hello" >> $GITHUB_ENV
+
+            - name: Use persisted variable
+              run: echo "Fixed MY_VAR=$MY_VAR"
