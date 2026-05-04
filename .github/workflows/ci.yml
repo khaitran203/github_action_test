@@ -1,7 +1,10 @@
 name: My First Workflow
-on: push
+on: 
+  push:
+    branches: [main]
+    paths: 'src/**'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+      - run: echo "Hello KhaiTran203"
