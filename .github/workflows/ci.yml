@@ -1,10 +1,10 @@
-name: My First Workflow
-on: 
-  push:
-    branches: [main]
-    paths: 'src/**'
+name: HelloWorkFlows
+
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello KhaiTran203"
+      - run: echo "Hello GitHub Actions"
+      - run: echo "<current date>"
+
