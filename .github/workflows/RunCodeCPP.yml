@@ -7,11 +7,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - run: g++ app.cpp -o app && ./app
-
-    test:
-        needs: build
-        runs-on: ubuntu-latest
-        steps: 
-            - run: echo "run success!!!"
-            
+            - run: g++ src/app.cpp -o app && ./app
+    
