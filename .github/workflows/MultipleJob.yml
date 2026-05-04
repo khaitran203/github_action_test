@@ -4,7 +4,7 @@ on: push
 
 jobs: 
     build:
-        runs-on: actions/checkout@v4
+        runs-on: ubuntu-latest
         
         steps:
             - name: Print Hello
@@ -13,7 +13,7 @@ jobs:
     test: 
         needs: build
 
-        runs-on: actions/checkout@v4
+        runs-on: ubuntu-latest
 
         steps:
             - name: Test
