@@ -1,0 +1,20 @@
+name: Multiple Jobs
+
+on: push
+
+jobs: 
+    build:
+        runs-on: actions/checkout@v4
+        
+        steps:
+            - name: Print Hello
+              run: echo "Hello Khai"
+        
+    test: 
+        needs: build
+
+        runs-on: actions/checkout@v4
+
+        steps:
+            - name: Test
+              run: echo "thanh cong"
