@@ -1,0 +1,22 @@
+name: OS Matix
+
+on: push
+
+jobs:
+    build:
+        runs-on: ${{ matrix.os }}
+        
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+        
+        steps:
+            - uses: actions/checkout@v4
+              
+            - name: Print OS info Linux
+              if: runner.os == 'Linux'
+              run: uname -a
+            
+            - name: Print OS info Windows
+              if: runner.os == 'Windows'
+              run: systeminfo
