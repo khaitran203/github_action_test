@@ -5,7 +5,17 @@ on: push
 jobs: 
     build:
         runs-on: ubuntu-latest
+
         steps:
             - uses: actions/checkout@v4
-            - run: g++ src/app.cpp -o app && ./app
-    
+            
+            - name: Debug files
+              run: |
+                pwd
+                ls -R
+            
+            - name: Compile
+              run: g++ src/*.cpp -o app
+            
+            - name: Run
+              run: ./app
