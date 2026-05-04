@@ -16,7 +16,7 @@ jobs:
             - name: Setup node-version
               uses: actions/setup-node@v4
               with:
-                node-version: ${{ matrix.node-version}}
+                node-version: ${{ matrix.node-version }}
             
             - name: Print node-version
               run: node -v
